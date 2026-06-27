@@ -68,11 +68,17 @@ setInterval(()=>{
   setTimeout(()=>sh.remove(),2000);
 },5000);
 
-document.getElementById("startJourney")?.addEventListener("click",()=>{
-  showScene("game");
-  startGame();
-});
+document.getElementById("startJourney").addEventListener("click", function () {
 
+    const music = document.getElementById("bgMusic");
+
+    music.play();
+
+    showScene("game");
+
+    startGame();
+
+});
 let gameStarted=false;
 let score=0;
 function startGame(){
