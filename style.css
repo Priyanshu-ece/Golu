@@ -1,0 +1,232 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Poppins,sans-serif;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(to bottom,#02040f,#08152d,#102d5a,#183d73);
+color:#fff;
+}
+
+.scene{
+position:absolute;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+pointer-events:none;
+transition:opacity .8s;
+}
+
+.scene.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.scene.hidden{
+display:none;
+}
+
+.glass-card{
+width:min(90%,700px);
+padding:40px;
+text-align:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:30px;
+box-shadow:0 0 40px rgba(255,105,180,.2);
+animation:fadeUp 1s;
+position:relative;
+z-index:10;
+}
+
+h1{
+font-family:"Great Vibes",cursive;
+font-size:72px;
+color:#ffdff0;
+text-shadow:0 0 15px hotpink;
+margin-bottom:15px;
+}
+
+h2{font-size:38px;margin-bottom:20px}
+h3{font-size:22px}
+p{line-height:1.8;margin:12px 0}
+
+.date-card{
+margin:30px auto;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,.08);
+}
+
+button{
+padding:16px 36px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:18px;
+margin-top:25px;
+background:linear-gradient(90deg,#ff4d8d,#ff8cbc);
+color:#fff;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.06);
+box-shadow:0 0 25px hotpink;
+}
+
+.music-box{
+position:fixed;
+top:20px;
+right:20px;
+z-index:999;
+}
+
+#musicBtn{
+width:60px;
+height:60px;
+border-radius:50%;
+font-size:24px;
+}
+
+.moon{
+position:fixed;
+top:60px;
+right:80px;
+width:150px;
+height:150px;
+border-radius:50%;
+background:#fffce8;
+box-shadow:0 0 40px #fff,0 0 120px rgba(255,255,255,.6);
+animation:moonGlow 5s infinite alternate;
+}
+
+.snorlax{
+position:fixed;
+left:20px;
+bottom:0;
+width:250px;
+filter:drop-shadow(0 0 15px rgba(0,0,0,.5));
+}
+
+#stars,#floating-hearts,#shooting-stars,#fireflies{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+.heart{
+position:absolute;
+bottom:-40px;
+color:#ff77b7;
+animation:heartFloat 10s linear forwards;
+}
+
+.firefly{
+position:absolute;
+width:5px;
+height:5px;
+border-radius:50%;
+background:#fff6a5;
+box-shadow:0 0 10px gold;
+animation:fireflyMove 6s infinite ease-in-out;
+}
+
+.shoot{
+position:absolute;
+width:150px;
+height:2px;
+background:linear-gradient(to right,#fff,transparent);
+transform:rotate(-35deg);
+animation:shoot 2s linear forwards;
+}
+
+#gameArea{
+position:relative;
+height:350px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.game-heart{
+position:absolute;
+font-size:40px;
+cursor:pointer;
+user-select:none;
+animation:pulse 1s infinite;
+}
+
+#reasonBox{
+min-height:140px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+padding:20px;
+}
+
+.ending-text{
+margin-top:25px;
+font-size:20px;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.2;transform:scale(.6)}
+50%{opacity:1;transform:scale(1.4)}
+}
+
+@keyframes heartFloat{
+from{transform:translateY(0);opacity:0}
+20%{opacity:1}
+to{transform:translateY(-120vh);opacity:0}
+}
+
+@keyframes fireflyMove{
+0%{transform:translate(0,0)}
+25%{transform:translate(30px,-20px)}
+50%{transform:translate(-20px,-50px)}
+75%{transform:translate(25px,-15px)}
+100%{transform:translate(0,0)}
+}
+
+@keyframes shoot{
+to{transform:translate(-900px,500px) rotate(-35deg);opacity:0}
+}
+
+@keyframes pulse{
+50%{transform:scale(1.2)}
+}
+
+@keyframes moonGlow{
+from{box-shadow:0 0 30px #fff,0 0 80px rgba(255,255,255,.4)}
+to{box-shadow:0 0 60px #fff,0 0 150px rgba(255,255,255,.7)}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:768px){
+h1{font-size:52px}
+h2{font-size:28px}
+.glass-card{padding:25px}
+.snorlax{width:160px}
+.moon{width:100px;height:100px;right:20px}
+}
